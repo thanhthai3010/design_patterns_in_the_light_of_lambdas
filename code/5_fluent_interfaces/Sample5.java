@@ -1,13 +1,13 @@
 import java.util.function.Consumer;
 
-//class Mailer {
+// class Mailer {
 //  public void from(String addr) { System.out.println("from"); }
 //  public void to(String addr) { System.out.println("to"); }
 //  public void subject(String subjectLine) { System.out.println("subject"); }
 //  public void body(String message) { System.out.println("body"); }
 //  public void send() { System.out.println("sending..."); }
-//}
-//public class Sample {
+// }
+// public class Sample {
 //  public static void main(String[] args) {
 //    Mailer mailer = new Mailer();
 //    mailer.from("builder@agiledeveloper.com");
@@ -16,45 +16,45 @@ import java.util.function.Consumer;
 //    mailer.body("...");
 //    mailer.send();
 //  }
-//}
-
+// }
 
 class Mailer {
-	public Mailer from(String addr) {
-		System.out.println("from");
-		return this;
-	}
+  public static void send(Consumer<Mailer> block) {
+    Mailer mailer = new Mailer();
+    block.accept(mailer);
+    System.out.println("sending...");
+  }
 
-	public Mailer to(String addr) {
-		System.out.println("to");
-		return this;
-	}
+  public Mailer from(String addr) {
+    System.out.println("from");
+    return this;
+  }
 
-	public Mailer subject(String subjectLine) {
-		System.out.println("subject");
-		return this;
-	}
+  public Mailer to(String addr) {
+    System.out.println("to");
+    return this;
+  }
 
-	public Mailer body(String message) {
-		System.out.println("body");
-		return this;
-	}
+  public Mailer subject(String subjectLine) {
+    System.out.println("subject");
+    return this;
+  }
 
-	public static void send(Consumer<Mailer> block) {
-		Mailer mailer = new Mailer();
-		block.accept(mailer);
-		System.out.println("sending...");
-	}
+  public Mailer body(String message) {
+    System.out.println("body");
+    return this;
+  }
 }
 
 public class Sample5 {
-	public static void main(String[] args) {
-		Mailer.send(mailer -> {
-			mailer.from("builder@agiledeveloper.com")
-					.to("venkats@agiledeveloper.com")
-					.subject("Your code sucks")
-					.body("...");
-		});
-	}
+  public static void main(String[] args) {
+    Mailer.send(
+        mailer -> {
+          mailer
+              .from("builder@agiledeveloper.com")
+              .to("venkats@agiledeveloper.com")
+              .subject("Your code sucks")
+              .body("...");
+        });
+  }
 }
-
