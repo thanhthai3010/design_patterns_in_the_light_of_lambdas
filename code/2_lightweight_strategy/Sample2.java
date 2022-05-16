@@ -11,27 +11,11 @@ public class Sample2 {
     return total;
   }
 
-  private static int totalEvenValues(List<Integer> numbers) {
-    int total = 0;
-    for (Integer number : numbers) {
-      if (number % 2 == 0) total += number;
-    }
-    return total;
-  }
-
-  private static int totalOddValues(List<Integer> numbers) {
-    int total = 0;
-    for (Integer number : numbers) {
-      if (number % 2 != 0) total += number;
-    }
-    return total;
-  }
-
   public static void main(String[] args) {
     List<Integer> values = Arrays.asList(1, 2, 3, 4, 5, 6);
 
-    System.out.println(totalValues(values, number -> true));
-    System.out.println(totalEvenValues(values));
-    System.out.println(totalOddValues(values));
+    System.out.println("Total value: " + totalValues(values, number -> true));
+    System.out.println("Total even value: " + totalValues(values, number -> number % 2 == 0));
+    System.out.println("Total odd value: " + totalValues(values, number -> number % 2 != 0));
   }
 }
