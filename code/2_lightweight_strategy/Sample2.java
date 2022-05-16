@@ -49,16 +49,10 @@ public class Sample2 {
 	}
 
 	public static void main(String[] args) {
-//		List<Integer> values = Arrays.asList(1, 2, 3, 4, 5, 6);
-//
-//		System.out.println(totalValues(values, value -> true));
-//		System.out.println(totalValues(values, value -> value % 2 == 0));
-//		System.out.println(totalValues(values, value -> value % 2 != 0));
+		List<Integer> values = Arrays.asList(1, 2, 3, 4, 5, 6);
 
-		int[] listOutputSorted = IntStream.of(-3, 10, -4, 1, 3)
-				.sorted()
-				.toArray();
-
-		System.out.println(listOutputSorted);
+		System.out.println(totalValues(values, value -> true));
+		System.out.println(totalValues(values, value -> value % 2 == 0));
+		System.out.println(totalValues(values, value -> value % 2 != 0));
 	}
 }
