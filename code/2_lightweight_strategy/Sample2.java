@@ -4,11 +4,7 @@ import java.util.function.Predicate;
 
 public class Sample2 {
   public static int totalValues(List<Integer> numbers, Predicate<Integer> filterCondition) {
-    int total = 0;
-    for (Integer number : numbers) {
-      if (filterCondition.test(number)) total += number;
-    }
-    return total;
+    return numbers.stream().filter(filterCondition).mapToInt(number -> number).sum();
   }
 
   public static void main(String[] args) {
