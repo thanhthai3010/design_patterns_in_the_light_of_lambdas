@@ -1,11 +1,12 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Sample2 {
-  public static int totalValues(List<Integer> numbers) {
+  public static int totalValues(List<Integer> numbers, Predicate<Integer> filterCondition) {
     int total = 0;
     for (Integer number : numbers) {
-      total += number;
+      if (filterCondition.test(number)) total += number;
     }
     return total;
   }
@@ -29,7 +30,7 @@ public class Sample2 {
   public static void main(String[] args) {
     List<Integer> values = Arrays.asList(1, 2, 3, 4, 5, 6);
 
-    System.out.println(totalValues(values));
+    System.out.println(totalValues(values, number -> true));
     System.out.println(totalEvenValues(values));
     System.out.println(totalOddValues(values));
   }
